@@ -32,3 +32,23 @@ The Jupyter notebook demonstrates the following key steps:
 1. **Collaborative Filtering:** The core of the recommendation engine is built using collaborative filtering techniques to find similar users and items.
 
 1. **Recommendation Generation:** The final step involves generating a list of recommended books for a given user or based on a specific book.
+
+## Collaborative Filtering
+
+Collaborative Filtering is a technique used by recommender systems to make predictions about a user's interests by collecting preferences from many users. The notebook mentions two types:
+
+- **User-based collaborative filtering:** This approach finds a group of users with similar preferences to the target user. It then recommends items that this group liked but the target user has not yet seen. For example, if User A and User B both rated "Book 1" and "Book 2" highly, and User A also rated "Book 3" highly, the system would likely recommend "Book 3" to User B.
+
+- **Item-based collaborative filtering:** This method finds items that are similar to the ones a user has already liked. For example, if a user rated "Book 1" highly, the system would find other books that are frequently rated highly by users who also rated "Book 1" highly. It would then recommend those similar books. The notebook uses Scikit-learn's NearestNeighbors and pairwise_distances to find these similar users or items.
+
+## Recommendation Generation
+
+Recommendation Generation is the final step where the system takes the results from the collaborative filtering model and creates a list of books to suggest to the user. This involves:
+
+1. **Prediction:** The model predicts a rating for items the user hasn't seen yet.
+
+1. **Ranking:** It sorts these predicted items in descending order of their predicted rating.
+
+1. **Selection:** It then selects the top N books from this sorted list to present as recommendations.
+
+In essence, collaborative filtering is the "how" (the methodology), and recommendation generation is the "what" (the final output of a list of books) of the recommender system.
